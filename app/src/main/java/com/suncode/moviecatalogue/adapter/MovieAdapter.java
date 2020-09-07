@@ -40,8 +40,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MovieAdapter.ViewHolder holder, int position) {
-        holder.title.setText("Title: " + (mData.get(position).getTitle()));
-        holder.overview.setText("Overview: " + (mData.get(position).getOverview()));
+        holder.title.setText(mData.get(position).getTitle());
+        holder.overview.setText(mData.get(position).getOverview());
         String image = mData.get(position).getBackdrop_path();
         Glide.with(context).load(Constant.IMAGE_REQUEST + image).diskCacheStrategy(DiskCacheStrategy.DATA).into(holder.img);
 

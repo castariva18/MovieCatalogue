@@ -1,6 +1,7 @@
 package com.suncode.moviecatalogue.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import retrofit2.Call;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Movie.ResultsBean> movies;
     private MovieAdapter movieAdapter;
     private ApiService apiService;
+  //  private GridLayoutManager gridLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         rvMovie = findViewById(R.id.rv_movie);
         movies = new ArrayList<Movie.ResultsBean>();
         movieAdapter = new MovieAdapter(getApplicationContext(), movies);
+    //    gridLayoutManager = new GridLayoutManager(this, 2);
         apiService = ApiClient.getRetrofit().create(ApiService.class);
 
         getData();
@@ -51,7 +54,9 @@ public class MainActivity extends AppCompatActivity {
                         List<Movie.ResultsBean> list = movie.getResults();
                         Movie.ResultsBean movieList = list.get(i);
                         movies.add(movieList);
+                 //       rvMovie.setLayoutManager(gridLayoutManager);
                         rvMovie.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+
                         rvMovie.setAdapter(movieAdapter);
                     }
                 }

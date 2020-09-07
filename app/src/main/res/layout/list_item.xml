@@ -14,6 +14,8 @@
         android:id="@+id/img_poster"
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:layout_margin="8dp"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,7 +24,6 @@
         android:id="@+id/tv_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:text="TextView"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -30,7 +31,6 @@
         android:layout_marginLeft="10dp"
         android:textColor="@color/cardview_light_background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_poster" />
 
@@ -45,6 +45,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

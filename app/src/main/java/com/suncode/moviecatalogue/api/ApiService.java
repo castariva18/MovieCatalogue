@@ -1,5 +1,6 @@
 package com.suncode.moviecatalogue.api;
 
+import com.suncode.moviecatalogue.model.Genre;
 import com.suncode.moviecatalogue.model.Movie;
 
 import retrofit2.Call;
@@ -15,5 +16,11 @@ public interface ApiService {
             @Query("api_key") String apiKey,
             @Query("language") String language,
             @Query("page") int page
+    );
+
+    @GET("/3/genre/movie/list")
+    Call<Genre> getGenres(
+            @Query("api_key") String apiKey,
+            @Query("language") String language
     );
 }
