@@ -4,8 +4,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.suncode.moviecatalogue.Constant;
 import com.suncode.moviecatalogue.R;
 import com.suncode.moviecatalogue.model.Movie;
 
@@ -38,6 +42,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull MovieAdapter.ViewHolder holder, int position) {
         holder.title.setText("Title: " + (mData.get(position).getTitle()));
         holder.overview.setText("Overview: " + (mData.get(position).getOverview()));
+        String image = mData.get(position).getBackdrop_path();
+        Glide.with(context).load(Constant.IMAGE_REQUEST + image).diskCacheStrategy(DiskCacheStrategy.DATA).into(holder.img);
+
     }
 
     @Override
@@ -47,11 +54,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView title, overview;
+        private ImageView img;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.tv_title);
             overview = itemView.findViewById(R.id.tv_desc);
+            img = itemView.findViewById(R.id.img_poster);
         }
     }
 }

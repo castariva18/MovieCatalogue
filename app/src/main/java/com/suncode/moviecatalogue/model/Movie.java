@@ -51,22 +51,6 @@ public class Movie {
     }
 
     public static class ResultsBean {
-        /**
-         * popularity : 958.516
-         * vote_count : 940
-         * video : false
-         * poster_path : /TnOeov4w0sTtV2gqICqIxVi74V.jpg
-         * id : 605116
-         * adult : false
-         * backdrop_path : /qVygtf2vU15L2yKS4Ke44U4oMdD.jpg
-         * original_language : en
-         * original_title : Project Power
-         * genre_ids : [28,80,878]
-         * title : Project Power
-         * vote_average : 6.7
-         * overview : An ex-soldier, a teen and a cop collide in New Orleans as they hunt for the source behind a dangerous new pill that grants users temporary superpowers.
-         * release_date : 2020-08-14
-         */
 
         private double popularity;
         private int vote_count;

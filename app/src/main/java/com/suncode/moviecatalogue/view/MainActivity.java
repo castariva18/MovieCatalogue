@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         rvMovie = findViewById(R.id.rv_movie);
         movies = new ArrayList<Movie.ResultsBean>();
-        movieAdapter = new MovieAdapter(getApplicationContext(),movies);
+        movieAdapter = new MovieAdapter(getApplicationContext(), movies);
         apiService = ApiClient.getRetrofit().create(ApiService.class);
 
         getData();
