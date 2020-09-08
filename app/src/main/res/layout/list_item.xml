@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_margin="10dp"
+    android:id="@+id/card1"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:background="@drawable/curve_list"
