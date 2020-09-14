@@ -51,16 +51,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         String poster = mData.get(position).getBackdrop_path();
         String title = mData.get(position).getTitle();
         String overview = mData.get(position).getOverview();
-        //int[] genreId = mData.get(position).getGenre_ids();
+        int[] genreId = mData.get(position).getGenre_ids();
 
         holder.cdMovie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailActivity.class);
-                intent.putExtra("TITLE",title);
-                intent.putExtra("POSTER",poster);
-                intent.putExtra("OVERVIEW",overview);
-          //      intent.putExtra("GENRE", genreId);
+                intent.putExtra("TITLE", title);
+                intent.putExtra("POSTER", poster);
+                intent.putExtra("OVERVIEW", overview);
+                intent.putExtra("GENRE", genreId);
                 context.startActivity(intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             }
         });

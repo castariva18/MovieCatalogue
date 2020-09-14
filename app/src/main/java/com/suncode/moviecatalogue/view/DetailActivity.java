@@ -48,37 +48,37 @@ public class DetailActivity extends AppCompatActivity {
 //        double popular = intent.getDoubleExtra("POPULAR",0);
         int[] genre_ids = intent.getIntArrayExtra("GENRE");
         Glide.with(this).load(Constant.IMAGE_REQUEST + movie_poster).diskCacheStrategy(DiskCacheStrategy.DATA).into(imgPoster);
-        //  getGenre(genre_ids);
+        getGenre(genre_ids);
         tvOverview.setText(movie_overview);
         tvTitle.setText("Title: " + movie_title);
     }
 
-//    private void getGenre(int[] genre_ids) {
-//        Call<Genre> genreCall = apiService.getGenres(Constant.API_KEY, Constant.LANGUAGE);
-//        genreCall.enqueue(new Callback<Genre>() {
-//            @Override
-//            public void onResponse(Call<Genre> call, Response<Genre> response) {
-//                Genre data = response.body();
-//
-//                Genre.Genres[] genres = data.getGenres();
-//
-//                HashMap<Integer, String> map = new HashMap<>();
-//
-//                for (int i = 0; i < genres.length; i++) {
-//                    map.put(genres[i].getId(), genres[i].getName());
-//                }
-//
-//                for (int i = 0; i < genre_ids.length; i++) {
-//                    String genreName = map.get(genre_ids[i]);
-//                    tvGenre.setText("Genre: " + genreName);
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<Genre> call, Throwable t) {
-//                t.getMessage();
-//            }
-//        });
-//    }
+    private void getGenre(int[] genre_ids) {
+        Call<Genre> genreCall = apiService.getGenres(Constant.API_KEY, Constant.LANGUAGE);
+        genreCall.enqueue(new Callback<Genre>() {
+            @Override
+            public void onResponse(Call<Genre> call, Response<Genre> response) {
+                Genre data = response.body();
+
+                Genre.Genres[] genres = data.getGenres();
+
+                HashMap<Integer, String> map = new HashMap<>();
+
+                for (int i = 0; i < genres.length; i++) {
+                    map.put(genres[i].getId(), genres[i].getName());
+                }
+
+                for (int i = 0; i < genre_ids.length; i++) {
+                    String genreName = map.get(genre_ids[i]);
+                    tvGenre.setText("Genre: " + genreName);
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Genre> call, Throwable t) {
+                t.getMessage();
+            }
+        });
+    }
 }
